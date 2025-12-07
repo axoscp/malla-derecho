@@ -3,27 +3,24 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    background-color: #f3e8ff; /* lila muy suave */
-    font-family: Arial, sans-serif;
+    background: #f7e9ff;
 }
 
 #grid {
     display: grid;
     grid-template-columns: repeat(12, 40px);
-    grid-template-rows: repeat(12, 40px);
     gap: 4px;
 }
 
 .cell {
     width: 40px;
     height: 40px;
-    background-color: #ffffff;
-    border: 1px solid #c7a7ff;
+    background: #e8d4ff;
+    border: 1px solid #c9a6ff;
     cursor: pointer;
     transition: background 0.2s;
 }
 
 .cell.active {
-    background-color: #b388ff; /* lila bonito */
+    background: #b57dff;
 }
