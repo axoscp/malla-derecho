@@ -1,15 +1,18 @@
 :root{
   --bg: #f7eaff;
-  --panel: #fff;
-  --lil-light: #f4e7ff;   /* lila clarito */
-  --lil-mid: #e8d4ff;
-  --lil-dark: #c08aff;    /* lila fuerte */
-  --lil-border: #8a46ff;  /* borde del completado */
+  --panel: #ffffff;
+  --lil-blocked: #f7efff;   /* bloqueado (más claro) */
+  --lil-ready: #e8d4ff;     /* habilitado (medio) */
+  --lil-done: #c08aff;      /* completado (oscuro) */
+  --lil-done-border: #8a46ff;
   --text: #2d2540;
   --muted: #6b6480;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto;
@@ -17,7 +20,9 @@ body{
   color:var(--text);
 }
 
-/* ENCABEZADO */
+/*----------------------------*/
+/*      HEADER                */
+/*----------------------------*/
 .top{
   text-align:center;
   padding:24px 16px 8px;
@@ -25,10 +30,14 @@ body{
 .top h1{
   margin:0;
   font-size:1.8rem;
-  color:var(--lil-dark);
+  color:var(--lil-done);
 }
-.subtitle{margin:6px 0 12px;color:var(--muted)}
+.subtitle{
+  margin:6px 0 12px;
+  color:var(--muted);
+}
 
+/* CONTROLES */
 .controls{
   display:flex;
   gap:12px;
@@ -36,42 +45,36 @@ body{
   flex-wrap:wrap;
   margin-bottom:8px;
 }
-.controls button{
-  background: linear-gradient(180deg,var(--lil-dark),#a267ff);
-  color:white;
-  border: none;
-  padding:8px 12px;
-  border-radius:8px;
-  cursor:pointer;
-}
 
 /* OCULTAR CRÉDITOS Y REQUISITOS */
-.credits-info, #creditsDone, .meta, .small-req {
-  display: none !important;
+.credits-info, #creditsDone, .meta, .small-req{
+  display:none !important;
 }
 
-/* -------- COLUMNA EN COLUMNAS (LA PARTE QUE TE FALLABA) ------- */
-#mallaWrap {
-  padding: 12px;
-  display: flex;
-  flex-direction: row;     /* 🔥 columnas lado a lado */
-  gap: 14px;
-  justify-content: center;
-  align-items: flex-start;
-  overflow-x: auto;        /* 🔥 si se desborda, scroll horizontal */
-  white-space: nowrap;     /* 🔥 evita que bajen de fila */
+/*----------------------------*/
+/*      COLUMNAS / MALLA      */
+/*----------------------------*/
+#mallaWrap{
+  padding:12px;
+  display:flex;
+  flex-direction:row;     /* columnas */
+  gap:14px;
+  justify-content:center;
+  align-items:flex-start;
+  overflow-x:auto;
+  white-space:nowrap;     /* no saltan a otra fila */
 }
 
-.col {
-  background: var(--panel);
+.col{
+  background:var(--panel);
   border-radius:12px;
   padding:12px;
-  min-width:220px;
-  box-shadow: 0 8px 22px rgba(45,37,64,0.06);
-  display: inline-flex;    /* 🔥 columna real */
+  min-width:230px;
+  box-shadow:0 8px 22px rgba(45,37,64,0.06);
+  display:inline-flex;
   flex-direction:column;
   gap:10px;
-  vertical-align: top;
+  vertical-align:top;
 }
 
 .col h2{
@@ -79,74 +82,70 @@ body{
   padding-bottom:6px;
   border-bottom:1px dashed rgba(0,0,0,0.05);
   text-align:center;
-  color:var(--lil-dark);
+  color:var(--lil-done);
   font-size:16px;
 }
 
-/* ------- TARJETAS NO MARCADAS (LILA CLARITO) ------- */
-.card {
-  background: linear-gradient(180deg, var(--lil-light), #ffffff);
-  border-radius: 10px;
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  position: relative;
-  min-height: 56px;
-  cursor: pointer;
-  border: 1px solid rgba(118,86,255,0.15);
-  transition: 0.15s;
+/*----------------------------*/
+/*       TARJETAS CURSOS      */
+/*----------------------------*/
+.card{
+  border-radius:10px;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+  min-height:60px;
+  border:1px solid rgba(118,86,255,0.12);
+  transition:0.15s;
+  white-space:normal;     /* 🔥 PERMITE MOSTRAR LOS NOMBRES COMPLETOS */
 }
 
-.card:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(86,63,204,0.08);
+/* BLOQUEADO = LILA MUY CLARO */
+.card.blocked{
+  background:var(--lil-blocked);
+  color:var(--text);
 }
 
-.title{
-  font-weight:600;
-  font-size:13px;
+/* HABILITADO = LILA MEDIO */
+.card.ready{
+  background:var(--lil-ready);
+  color:var(--text);
 }
 
-/* ------- TARJETAS MARCADAS (LILA OSCURO) ------- */
-.card.done {
-  background: linear-gradient(180deg, #d9b3ff, var(--lil-dark));
-  border: 2px solid var(--lil-border);
-  color: white !important;
-  box-shadow: 0 6px 18px rgba(130, 70, 255, 0.2);
+/* COMPLETADO = LILA OSCURO */
+.card.done{
+  background:var(--lil-done);
+  color:white !important;
+  border:2px solid var(--lil-done-border);
+  box-shadow:0 6px 18px rgba(130,70,255,0.2);
 }
 
 .card.done .title{
   color:white !important;
 }
 
-.card.done .badge{
-  background: rgba(255,255,255,0.2);
-  color:white;
-  border-color: rgba(255,255,255,0.3);
+/* NOMBRES COMPLETOS Y AJUSTADOS */
+.title{
+  font-weight:600;
+  font-size:13px;
+  line-height:1.2;
+  white-space:normal;
+  overflow-wrap:break-word;  /* 🔥 evita que se corte o salga */
 }
 
-/* Badge normal */
-.badge {
-  position:absolute;
-  right:8px;
-  top:8px;
-  font-size:11px;
-  padding:4px 6px;
-  border-radius:8px;
-  background:rgba(255,255,255,0.85);
-  color:var(--muted);
-  border:1px solid rgba(0,0,0,0.04);
+/*----------------------------*/
+/*     REMOVER BADGES         */
+/*----------------------------*/
+.badge{
+  display:none !important;  /* 🔥 ADIÓS "bloqueado" / "listo" */
 }
 
-/* LOS BLOQUEADOS YA NO LUCEN BLOQUEADOS (solo texto) */
-.card.blocked{
-  opacity:1 !important;
-  filter:none !important;
-}
-
-/* Responsive */
-@media (max-width:980px){
+/*----------------------------*/
+/*    RESPONSIVE              */
+/*----------------------------*/
+@media(max-width:980px){
   #mallaWrap{
     flex-wrap:nowrap;
   }
