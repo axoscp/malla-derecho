@@ -138,3 +138,8 @@ body{
   #mallaWrap{ padding:12px; gap:10px; flex-wrap:wrap; justify-content:center }
   .col{ min-width:180px }
 }
+.meta,
+.small-req,
+.credits-info {
+  display: none !important;
+}
