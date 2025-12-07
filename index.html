@@ -1,12 +1,17 @@
-const grid = document.getElementById("grid");
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Derecho</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-for (let i = 0; i < 144; i++) {
-    const cell = document.createElement("div");
-    cell.classList.add("cell");
+    <h1>Malla Interactiva 💜</h1>
 
-    cell.addEventListener("click", () => {
-        cell.classList.toggle("active");
-    });
+    <div id="grid"></div>
 
-    grid.appendChild(cell);
-}
+    <script src="script.js"></script>
+</body>
+</html>
