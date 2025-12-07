@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Malla Interactiva</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DERECHO PUCP — Malla 2015-1</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="top">
+    <h1>DERECHO PUCP</h1>
+    <p class="subtitle">Malla 2015-1 — Ciclos 5° a 12° — Interactivo</p>
+    <div class="controls">
+      <button id="resetBtn" title="Borrar progreso">🗑️ Reset</button>
+      <span class="legend"><span class="box example blocked"></span> Bloqueado</span>
+      <span class="legend"><span class="box example ready"></span> Listo</span>
+      <span class="legend"><span class="box example done"></span> Completado</span>
+      <div class="credits-info">Créditos completados: <strong id="creditsDone">0</strong></div>
+    </div>
+  </header>
 
-  <div id="grid"></div>
+  <main id="mallaWrap">
+    <!-- JS renderiza las columnas aquí -->
+  </main>
+
+  <footer class="footer">
+    <small>Datos: Malla Derecho PUCP 2015-1. Interfaz desarrollada por Chatsito — Versión para pegar.</small>
+  </footer>
 
   <script src="script.js"></script>
 </body>
