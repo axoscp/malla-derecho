@@ -1,1 +1,33 @@
+body {
+    background: #f7f2fc; /* lila pastel muy suave */
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+    gap: 4px;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    background: #ebe0ff; /* lilita suave */
+    border: 1px solid #d3b8ff; /* borde lila */
+    transition: background 0.2s ease;
+    cursor: pointer;
+}
+
+.cell:hover {
+    background: #d9c2ff; /* lila un poquito más fuerte */
+}
+
+.cell.active {
+    background: #b08cff !important; /* lila intenso */
+}
