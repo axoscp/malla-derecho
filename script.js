@@ -6,7 +6,7 @@ const malla = [
   {
     ciclo: "5° CICLO",
     cursos: [
-      { id: "IJC", name: "Introducción a las Ciencias Jurídicas", credits:5, prereq: ["Modelos de Abogado y Excelencia Profesional"] },
+      { id: "IJC", name: "Introducción a las Ciencias Jurídicas", credits:5 },
       { id: "IDP1", name: "Instituciones del Derecho Privado", credits:3, prereq: ["Introducción a las Ciencias Jurídicas","Modelos de Abogado y Excelencia Profesional"] },
       { id: "ANT", name: "Antropología y Derecho", credits:3, prereq: ["Introducción a las Ciencias Jurídicas","Modelos de Abogado y Excelencia Profesional"] },
       { id: "TCMS", name: "Teoría del Conflicto y Mecanismos de Solución", credits:2, prereq: ["Introducción a las Ciencias Jurídicas","Modelos de Abogado y Excelencia Profesional"] },
